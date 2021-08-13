@@ -1,0 +1,175 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "com.rizing.tableit",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZRZ_TABLEIT_SRV": {
+				"uri": "/sap/opu/odata/sap/ZRZ_TABLEIT_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZRZ_TABLEIT_SRV/metadata.xml",
+					"annotations": [
+						"ZRZ_TABLEIT_ANNO_MDL"
+					]
+				}
+			},
+			"ZRZ_TABLEIT_ANNO_MDL": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZRZ_TABLEIT_ANNO_MDL',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/ZRZ_TABLEIT_ANNO_MDL.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"fullWidth": true,
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.rizing.tableit.view.App",
+			"type": "XML",
+			"async": true
+		},
+		"handleValidation": true,
+		"dependencies": {
+			"minUI5Version": "1.36.0",
+			"libs": {
+				"sap.m": {},
+				"sap.tnt": {},
+				"sap.ui.commons": {},
+				"sap.ui.comp": {},
+				"sap.ui.table": {},
+				"sap.ui.unified": {},
+				"sap.ui.ux3": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.rizing.tableit.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZRZ_TABLEIT_SRV",
+				"preload": true
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "util/pdfmake.min.js"
+				},
+				{
+					"uri": "util/vfs_fonts.js"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.rizing.tableit.view",
+				"controlId": "idAppControl",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "mastermain",
+					"target": "mastermain"
+				},
+				{
+					"pattern": "Main/{cds}/{sTableName}/{sDescription}",
+					"name": "main",
+					"target": "main"
+				},
+				{
+					"pattern": "Detail/{entitySet}/{sPath}",
+					"name": "detail",
+					"target": "detail"
+				},
+				{
+					"pattern": "New/{entitySet}",
+					"name": "new",
+					"target": "new"
+				}
+			],
+			"targets": {
+					"mastermain": {
+					"viewName": "MasterMain",
+					"viewLevel": 1
+				},
+				"main": {
+					"viewName": "Main",
+					"viewLevel": 2
+				},
+				"detail": {
+					"viewName": "Detail",
+					"viewLevel": 3
+				},
+				"new": {
+					"viewName": "New",
+					"viewLevel": 4
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zrz_tableit/webapp",
+		"_version": "1.1.0"
+	}
+}

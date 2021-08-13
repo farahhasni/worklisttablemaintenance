@@ -1,0 +1,240 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference
+		Uri="https://webidecp-s0018211714trial.dispatcher.hanatrial.ondemand.com/destinations/BPS/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='BPS')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-s0018211714trial.dispatcher.hanatrial.ondemand.com/destinations/BPS/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='BPS')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-s0018211714trial.dispatcher.hanatrial.ondemand.com/destinations/BPS/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='BPS')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-s0018211714trial.dispatcher.hanatrial.ondemand.com/destinations/BPS/sap/opu/odata/SAP/ZRZ_TABLEIT_SRV/$metadata">
+		<edmx:Include Namespace="ZRZ_TABLEIT_SRV" Alias="SAP"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml">
+		<edmx:Include Alias="Auth" Namespace="Org.OData.Authorization.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="Measures" Namespace="Org.OData.Measures.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+		<edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zrz_tableit_anno_mdl.v1">
+			<Annotations Target="ZRZ_TABLEIT_SRV.ZRZ_C_SCARRType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrname"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="currcode"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="url"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrname"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="currcode"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="url"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>carrid</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZRZ_TABLEIT_SRV.ZRZ_C_ZBOOKType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="bookid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="customid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="discount"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="bookid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="customid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="discount"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>bookid</PropertyPath>
+						<PropertyPath>customid</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZRZ_TABLEIT_SRV.ZRZ_C_SFLIGHTType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="connid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="fldate"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="price"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="currency"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="planetype"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="connid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="fldate"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="price"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="currency"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="planetype"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>carrid</PropertyPath>
+						<PropertyPath>connid</PropertyPath>
+						<PropertyPath>currency</PropertyPath>
+						<PropertyPath>planetype</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZRZ_TABLEIT_SRV.ZRZ_C_SPFLIType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="connid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="airpfrom"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="airpto"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="connid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="airpfrom"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="airpto"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>carrid</PropertyPath>
+						<PropertyPath>connid</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZRZ_TABLEIT_SRV.ZRZ_C_SPFLI2Type">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="connid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="airpfrom"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="carrid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="connid"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="airpfrom"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>carrid</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

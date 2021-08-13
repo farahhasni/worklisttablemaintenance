@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog id="idOpenTableDialog" title="{i18n>openTable}" stretch="Phone" contentWidth="525px">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+			<f:content>
+				<Label text="{i18n>selectTable}"/>
+				<Select showSecondaryValues="true" items="{path: '/ZRZ_C_Table', sorter: {path: 'TableName'}}" forceSelection="false"
+					change="onSelectChange">
+					<core:ListItem key="{TableName}" text="{TableName}" additionalText="{Description}"/>
+				</Select>
+			</f:content>
+		</f:SimpleForm>
+		<beginButton>
+			<Button text="{i18n>ok}" press="onOkTableSelect"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>cancel}" press="onCancelTableSelect"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

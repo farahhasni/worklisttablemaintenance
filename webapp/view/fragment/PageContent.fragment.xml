@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<smartTable:SmartTable id="idSmartTable" smartFilterId="idSmartFilterBar" tableType="ResponsiveTable" useVariantManagement="false"
+		useTablePersonalisation="true" header="{main>/tableName}" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored"
+		enableAutoBinding="true" demandPopin="true" useExportToExcel="false" app:useSmartField="true" editable="false">
+		<smartTable:customToolbar>
+			<OverflowToolbar design="Transparent">
+				<ToolbarSpacer/>
+				<!--<Button text="{i18n>delete}" tooltip="{i18n>delete}" enabled="{main>/addDeleteEnabled}" press="onDelete"/>-->
+				<OverflowToolbarButton icon="sap-icon://add" text="{i18n>add}" tooltip="{i18n>add}" enabled="{main>/addDeleteEnabled}" press="onAdd"/>
+				<!--<MenuButton icon="sap-icon://menu" enabled="{main>/objLinkActionEnabled}" tooltip="{i18n>maintainObjLink}">-->
+				<!--	<menu>-->
+				<!--		<Menu id="idMenu" itemSelected="onMenuItemPress"/>-->
+				<!--	</menu>-->
+				<!--</MenuButton>-->
+				<!--<OverflowToolbarButton icon="sap-icon://pdf-attachment" text="{i18n>exportToPdf}" tooltip="{i18n>exportToPdf}" press="onExportPDF"/>-->
+			</OverflowToolbar>
+		</smartTable:customToolbar>
+		<Table growingScrollToLoad="true" growingThreshold="100" growing="true" mode="MultiSelect">
+			<items>
+				<ColumnListItem type="Navigation" press="onItemDetailPress"/>
+			</items>
+		</Table>
+	</smartTable:SmartTable>
+</core:FragmentDefinition>

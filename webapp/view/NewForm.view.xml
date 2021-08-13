@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" template:require="com.rizing.tableit.util.Helper"
+	controllerName="com.rizing.tableit.controller.NewForm" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+	<!-- Note: "meta>" MUST point to an entity set! -->
+	<template:alias name=".AH" value="sap.ui.model.odata.AnnotationHelper">
+		<template:alias name=".formatParts" value="com.rizing.tableit.util.Helper.formatParts">
+			<template:alias name=".id" value="com.rizing.tableit.util.Helper.id">
+				<template:with path="meta>/" var="fieldGroup">
+					<!--default value needed for IDs-->
+					<template:with path="meta>entityType" helper=".AH.gotoEntityType" var="entityType">
+						<core:Fragment fragmentName="com.rizing.tableit.view.fragment.New" type="XML"/>
+					</template:with>
+				</template:with>
+			</template:alias>
+		</template:alias>
+	</template:alias>
+</mvc:View>

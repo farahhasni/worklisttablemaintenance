@@ -1,0 +1,47 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic" xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:sv="sap.ui.comp.smartvariants" controllerName="com.rizing.tableit.controller.MasterMain" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+	<f:DynamicPage preserveHeaderStateOnScroll="true" headerExpanded="{main>/headerExpanded}">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="{main>/title}"/>
+					<sv:SmartVariantManagement id="idSmartVariantManagement" persistencyKey="SmartVariantManagementScheduleShop" showShare="true"
+						showExecuteOnSelection="true" entitySet="ZRZ_C_TABLEREL"/>
+				</f:heading>
+				<f:actions>
+					<ToolbarSpacer/>
+					<!--<Button text="{i18n>openTable}" icon="sap-icon://table-view" type="Transparent" press="onOpenTable"/>-->
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<f:content>
+					<VBox id="idVBoxHeader" height="100%" renderType="Bare"/>
+					<smartFilterBar:SmartFilterBar id="idSmartFilterBar" smartVariant="idSmartVariantManagement" enableBasicSearch="true"
+						useProvidedNavigationProperties="true" entitySet="ZRZ_C_TABLEREL" persistencyKey="SmartFilterBarAssetDesign"
+						assignedFiltersChanged=".onAssignedFiltersChanged">
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration key="CDS" index="0" visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<!--<VBox id="idVBoxContent" height="100%" renderType="Bare"/>-->
+			<smartTable:SmartTable id="idSmartTable" entitySet="ZRZ_C_TABLEREL" smartFilterId="idSmartFilterBar" tableType="ResponsiveTable"
+				useExportToExcel="false" header="Tables" showRowCount="true" demandPopin="true" enableAutoBinding="false"
+				persistencyKey="SmartTableAssetDesign" smartVariant="idSmartVariantManagement" beforeRebindTable=".onBeforeRebindTable">
+				<Table id="idWorklistTable" busy="{worklistView>/isBusy}" enableBusyIndicator="true">
+					<columns/>
+					<items>
+						<ColumnListItem type="Navigation" press=".onPressWorklistItem"/>
+					</items>
+				</Table>
+			</smartTable:SmartTable>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

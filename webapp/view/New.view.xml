@@ -1,0 +1,29 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout"
+	controllerName="com.rizing.tableit.controller.New" xmlns:html="http://www.w3.org/1999/xhtml">
+	<ObjectPageLayout id="idObjectPageLayout" flexEnabled="true" enableLazyLoading="true" showTitleInHeaderContent="true"
+		showHeaderContent="true" showFooter="true">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="{detailView>/title}" isObjectTitleAlwaysVisible="false"/>
+		</headerTitle>
+		<sections>
+			<ObjectPageSection title="{i18n>generalInformationTitle}" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:VBox id="idVBoxNew" width="100%" height="100%" renderType="Bare" class="sapUiSmallMarginTopBottom"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:OverflowToolbar>
+				<m:Button icon="sap-icon://message-popup" text="{message>/length}" type="Emphasized" visible="{= ${message>/length} > 0 ? true : false}"
+					press="onMessageIndicatorPress"/>
+				<m:ToolbarSpacer/>
+				<m:Button text="{i18n>save}" press="onSave" type="Emphasized"/>
+				<m:Button text="{i18n>cancel}" press="onCancel"/>
+			</m:OverflowToolbar>
+		</footer>
+	</ObjectPageLayout>
+</core:View>
